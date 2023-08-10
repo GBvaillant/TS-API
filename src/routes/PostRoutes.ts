@@ -5,6 +5,7 @@ const routerPost = app => {
     app.get('/listPost/:id', PostController.listPost)
     app.put('/updatePost', PostController.updatePost)
     app.delete('/deletePost/:id', PostController.deletePost)
+    app.get('/listAllPost', PostController.listAllPost)
 }
 
 export default routerPost

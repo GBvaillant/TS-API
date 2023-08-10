@@ -99,6 +99,33 @@ export default {
             return res.json({ msg: err.message })
         }
 
+    },
+
+    async listAllPost(req: Request, res: Response) {
+        try {
+            const post = await prisma.post.findMany({
+                select: { 
+                    id: true,
+                    title: true,
+                    content: true,
+                    userId: true,
+                }
+            })
+            if (!post) {
+                res.json({
+                    err: true,
+                    msg: 'Não exite Post'
+                })
+            }
+
+            return res.json({
+                err: false,
+                post
+            })
+
+        } catch (err) {
+            res.json({ msg: err.message })
+        }
     }
 
 }

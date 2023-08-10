@@ -37,6 +37,6 @@ export default {
         } catch (err) {
             return res.json({ msg: err.message })
         }
-
     }
+
 }
